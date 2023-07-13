@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
-import fs from 'fs';
-import { public_dir, uploads_dir } from '../utils/path';
+import fs from 'fs'
+import { public_dir, uploads_dir } from '../utils/path'
 
 const mime = require('mime-types')
-var ffmpeg = require('fluent-ffmpeg');
+var ffmpeg = require('fluent-ffmpeg')
 
 export interface UploadAudioRequest extends Request {
     file: Express.Multer.File,
@@ -27,7 +27,7 @@ export const handleUploadedAudio = (req: UploadAudioRequest, res: Response) => {
         success: true,
         filename: file.filename
     })
-};
+}
 
 const convertToMp3 = (source: string, filename: string) => {
     return new Promise((resolve, reject) => {
